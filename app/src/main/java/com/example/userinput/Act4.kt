@@ -10,5 +10,5 @@ fun FormatDataDiri(modifier: Modifier){
     var textNama by remember { mutableStateOf("") }
     var textAlamat by remember { mutableStateOf("") }
     var textJK by remember { mutableStateOf("") }
-    val
+    val gender : List<String> = listOf("Laki laki", "Perempuan")
 }
