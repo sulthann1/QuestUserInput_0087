@@ -20,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -86,13 +87,13 @@ fun FormatDataDiri(modifier: Modifier = Modifier) {
             }
         )
         Divider(
-            modifier = Modifier.padding(bottom =
-                dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                    id = R.dimen.padding_medium
-                )
-            )
+            modifier = Modifier.padding(
+                top = dimensionResource(id = R.dimen.padding_medium),
+                bottom = dimensionResource(id = R.dimen.padding_medium)
+            ),
+            thickness = 1.dp,
+            color = Color.DarkGray
         )
-
         Button(
             modifier = Modifier.fillMaxWidth(1f),
             enabled = textAlamat.isNotEmpty(),
@@ -102,7 +103,11 @@ fun FormatDataDiri(modifier: Modifier = Modifier) {
                 alamat=textAlamat
             }
         ) {
-            Text(stringResource("Submit"))
+            Text(text = "Submit")
         }
+        Divider(
+            modifier = Modifier.padding(bottom =
+            dimensionResource())
+        )
     }
 }
