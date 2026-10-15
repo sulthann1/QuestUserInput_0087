@@ -2,43 +2,74 @@ package com.example.userinput
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import java.lang.reflect.Modifier
 
 @Composable
-fun FormatDataDiri(modifier: Modifier){
+fun FormatDataDiri(modifier: Modifier = Modifier) {
     var textNama by remember { mutableStateOf("") }
     var textAlamat by remember { mutableStateOf("") }
     var textJK by remember { mutableStateOf("") }
-    val gender : List<String> = listOf("Laki laki", "Perempuan")
+    val gender: List<String> = listOf("Laki laki", "Perempuan")
 
     var nama by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var jenis by remember { mutableStateOf("") }
-    Column(modifier = Modifier.padding(top = 58.dp,
+
+
+    Column(
+        modifier = modifier.padding(top = 58.dp),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally){
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         OutlinedTextField(
             value = textNama,
             singleLine = true,
             shape = MaterialTheme.shapes.large,
             modifier = Modifier.width(250.dp),
-            label = { Text(text= "Nama Lengkap") },
+            label = { Text(text = "Nama Lengkap") },
             onValueChange = {
                 textNama = it
             }
         )
 
+        Row(
+            modifier = Modifier.padding(top = 16.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            gender.forEach { item ->
+                Row(
+                    modifier = Modifier
+                        .selectable(
+                            selected = textJK == item,
+                            onClick = {
+                                textJK = item
+                            }
+                        )
+                        .padding(end = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    )
+                    Text(text = item)
+                }
+            }
+        }
     }
-
 }
