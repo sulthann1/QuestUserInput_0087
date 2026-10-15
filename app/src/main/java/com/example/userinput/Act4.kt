@@ -8,4 +8,6 @@ import java.lang.reflect.Modifier
 @Composable
 fun FormatDataDiri(modifier: Modifier){
     var textNama by remember { mutableStateOf("") }
+    var textAlamat by remember { mutableStateOf("") }
+    var
 }
