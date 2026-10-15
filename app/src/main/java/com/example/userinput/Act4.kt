@@ -9,5 +9,6 @@ import java.lang.reflect.Modifier
 fun FormatDataDiri(modifier: Modifier){
     var textNama by remember { mutableStateOf("") }
     var textAlamat by remember { mutableStateOf("") }
-    var
+    var textJK by remember { mutableStateOf("") }
+    val
 }
